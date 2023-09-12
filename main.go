@@ -1,6 +1,6 @@
 package main
 
-import "github.com/mario-aj/go-intesivo/internal/entity"
+import "github.com/Mario-aj/go-intensivo/internal/entity"
 
 func main() {
 	order, err := entity.NewOrder("123", 10, 2)
@@ -9,5 +9,5 @@ func main() {
 		println(err.Error())
 	} else {
 		println(order.ID)
-	}	
+	}
 }

@@ -1,3 +1,3 @@
-module github.com/mario-aj/go-intesivo
+module github.com/Mario-aj/go-intensivo
 
 go 1.18
