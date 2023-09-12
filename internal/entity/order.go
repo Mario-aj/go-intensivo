@@ -41,6 +41,14 @@ func (order *Order) Validate() error {
 	return nil
 }
 
-func (order *Order) CalculateFinalPrice() {
+func (order *Order) CalculateFinalPrice() error {
+	err := order.Validate()
+
+	if err != nil {
+		return err
+	}
+
 	order.finalPrice = order.price + order.tax
+
+	return nil
 }
