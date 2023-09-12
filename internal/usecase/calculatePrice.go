@@ -4,15 +4,15 @@ import "github.com/Mario-aj/go-intensivo/internal/entity"
 
 type OrderInput struct {
 	ID    string
-	price float64
-	tax   float64
+	Price float64
+	Tax   float64
 }
 
 type OrderOutput struct {
 	ID         string
-	price      float64
-	tax        float64
-	finalPrice float64
+	Price      float64
+	Tax        float64
+	FinalPrice float64
 }
 
 type CalculateFinalPrice struct {
@@ -20,7 +20,7 @@ type CalculateFinalPrice struct {
 }
 
 func (c *CalculateFinalPrice)  Execute(input OrderInput) (*OrderOutput, error) {
-	order, err := entity.NewOrder(input.ID, input.price, input.tax)
+	order, err := entity.NewOrder(input.ID, input.Price, input.Tax)
 
 	if err != nil {
 		return  nil, err
@@ -38,8 +38,8 @@ func (c *CalculateFinalPrice)  Execute(input OrderInput) (*OrderOutput, error) {
 
 	return &OrderOutput{
 		ID: order.ID,
-		tax: order.Tax,
-		price: order.Price,
-		finalPrice: order.FinalPrice,
+		Tax: order.Tax,
+		Price: order.Price,
+		FinalPrice: order.FinalPrice,
 	}, nil
 }
