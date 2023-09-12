@@ -4,16 +4,16 @@ import "errors"
 
 type Order struct {
 	ID         string
-	price      float64
-	tax        float64
-	finalPrice float64
+	Price      float64
+	Tax        float64
+	FinalPrice float64
 }
 
 func NewOrder(id string, price float64, tax float64) (*Order, error) {
 	order := &Order{
 		ID:    id,
-		price: price,
-		tax:   tax,
+		Price: price,
+		Tax:   tax,
 	}
 
 	err := order.Validate()
@@ -30,11 +30,11 @@ func (order *Order) Validate() error {
 		return errors.New("id is required")
 	}
 
-	if order.price <= 0 {
+	if order.Price <= 0 {
 		return errors.New("price must be grater than zero")
 	}
 
-	if order.tax < 0 {
+	if order.Tax < 0 {
 		return errors.New("invalid tax")
 	}
 
@@ -48,7 +48,7 @@ func (order *Order) CalculateFinalPrice() error {
 		return err
 	}
 
-	order.finalPrice = order.price + order.tax
+	order.FinalPrice = order.Price + order.Tax
 
 	return nil
 }
